@@ -1,7 +1,6 @@
 
-<form #myForm="ngForm" (ngSubmit)="submitForm(myForm.form);">
+<!-- <form #myForm="ngForm" (ngSubmit)="submitForm(myForm.form);"> -->
     <!-- <input  type="text" name="userOne" placeholder="Insert username" [(ngModel)]="userOne" > -->
-
     <input type="text" name="one" placeholder="Insert username" ngModel #one="ngModel" required>
     <!-- <input type="text" name="two" placeholder="Insert another username" ngModel #two="ngModel" required> -->
 
@@ -12,4 +11,6 @@
         Usernames are required
     </div> -->
 
-    <button class="btn btn-primary" [disabled]="!myForm.valid">Submit</button>
+    <!-- <button class="btn btn-primary" [disabled]="!myForm.valid">Submit</button> -->
+
+    <button (click)='getUsr()'>alv</button>

@@ -9,14 +9,24 @@ import { ApiService } from './api.service';
 })
 export class AppComponent {
   title = 'gitApp';
+  usr: any = [];
 
   constructor(private apiService: ApiService){}
 
-  submitForm(form){
-    let one = form.value.one;
-    console.log(form.value.one);
-    //if(one = two) return alert('Oops, usernames cant be the same :/');
-    this.apiService.getUser(one).subscribe(one => one);
-    //this.apiService.getUser(two).subscribe(two => two);
+  getUsr(){
+    this.usr = [];
+    let usrnm = 'fervlazq';
+    this.apiService.getUser(usrnm).subscribe((data: {}) => {
+      console.log(data);
+      this.usr = data;
+    });
   }
+
+  // submitForm(form){
+  //   let one = form.value.one;
+  //   console.log(form.value.one);
+  //   //if(one = two) return alert('Oops, usernames cant be the same :/');
+  //   this.apiService.getUser(one).subscribe(one => one);
+  //   //this.apiService.getUser(two).subscribe(two => two);
+  // }
 }
