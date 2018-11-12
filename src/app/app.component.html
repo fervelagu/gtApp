@@ -1,16 +1,23 @@
+<div class="container">
 
-<form #myForm="ngForm" (ngSubmit)="getUsr(myForm.form);">
-    <!-- <input  type="text" name="userOne" placeholder="Insert username" [(ngModel)]="userOne" > -->
-    <input type="text" name="one" placeholder="Insert username" ngModel #one="ngModel" required>
-    <input type="text" name="two" placeholder="Insert another username" ngModel #two="ngModel" required> -->
+    <h1>
+        <i class="fab fa-github-alt"></i>
+        COMPARE TO WIN - GITHUB USERS
+        <i class="fab fa-github-alt"></i>
+    </h1>
 
-    <div class="alert alert-danger" *ngIf="one.touched && one.errors">
-        Usernames are required
-    </div>
-    <div class="alert alert-danger" *ngIf="two.touched && two.errors">
-        Usernames are required
-    </div>
-
-    <button class="btn btn-primary" [disabled]="!myForm.valid">Submit</button>
-
-    <!-- <button (click)='getUsr()'>alv</button> -->
+    <form #myForm="ngForm" (ngSubmit)="getUsr(myForm.form);">
+        <div class="input-group mb-3">
+            <input type="text" name="one" class="form-control" placeholder="Insert username" aria-label="Insert username" aria-describedby="button-addon2" ngModel #one="ngModel" required>
+            <p class="alert alert-danger" *ngIf="one.touched && one.errors"> Usernames are required </p>
+        </div> 
+          
+        <div class="input-group mb-3">
+            <input type="text" name="two" class="form-control" placeholder="Insert another username" aria-label="Insert another username" aria-describedby="button-addon2" ngModel #two="ngModel" required>
+            <p class="alert alert-danger" *ngIf="two.touched && two.errors"> Usernames are required </p>
+        </div>
+    
+        <button class="btn btn-primary" [disabled]="!myForm.valid">GO!</button>
+    </form>
+    
+</div>

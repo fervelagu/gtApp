@@ -1,1 +1,36 @@
 /* You can add global styles to this file, and also import other style files */
+body {
+    margin: 0 auto;
+}
+
+h1 {
+    animation:peak 2s ease infinite;
+    font-family: 'Kumar One Outline', cursive;
+    font-size: 20px;
+    margin-bottom: 10%;
+}
+
+input {
+    display: grid;
+    height: 2vw;
+    margin: 0 20% 0 20%;
+}
+
+button {
+    padding: 5%;
+    margin: 2%;
+}
+
+.container {
+    text-align: center;
+    margin-top: 10px;
+    width: 60%;
+    padding: 30px;
+}
+
+@keyframes peak {
+    0% { opacity:0; }
+    30% { opacity:1; }
+    70% { opacity:1; }
+    100% { opacity:0; }
+}
