@@ -1,16 +1,16 @@
 
-<!-- <form #myForm="ngForm" (ngSubmit)="submitForm(myForm.form);"> -->
+<form #myForm="ngForm" (ngSubmit)="getUsr(myForm.form);">
     <!-- <input  type="text" name="userOne" placeholder="Insert username" [(ngModel)]="userOne" > -->
     <input type="text" name="one" placeholder="Insert username" ngModel #one="ngModel" required>
-    <!-- <input type="text" name="two" placeholder="Insert another username" ngModel #two="ngModel" required> -->
+    <input type="text" name="two" placeholder="Insert another username" ngModel #two="ngModel" required> -->
 
-    <!-- <div class="alert alert-danger" *ngIf="one.touched && one.errors">
-        Usernames are required 
-    </div> -->
-    <!-- <div class="alert alert-danger" *ngIf="userTwo.touched && userTwo.errors">
+    <div class="alert alert-danger" *ngIf="one.touched && one.errors">
         Usernames are required
-    </div> -->
+    </div>
+    <div class="alert alert-danger" *ngIf="two.touched && two.errors">
+        Usernames are required
+    </div>
 
-    <!-- <button class="btn btn-primary" [disabled]="!myForm.valid">Submit</button> -->
+    <button class="btn btn-primary" [disabled]="!myForm.valid">Submit</button>
 
-    <button (click)='getUsr()'>alv</button>
+    <!-- <button (click)='getUsr()'>alv</button> -->
