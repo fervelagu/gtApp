@@ -38,27 +38,34 @@ export class AppComponent {
     this.apiService.getRepos(u_one.login).subscribe((data: [{stargazers_count: number}]) => {
       this.userOneRepos = data;
       data.forEach((e) => {
-        usrOneStars += e["stargazers_count"];
+        console.log(e)
+        usrOneStars += e.stargazers_count;
         console.log(usrOneStars);
-      });
-    });
+      })
+//user 2
+      this.apiService.getRepos(u_two.login).subscribe((data: [{stargazers_count: number}]) => {
+        this.userTwoRepos = data;
+        data.forEach((e) => {
+          usrTwoStars += e["stargazers_count"];
+          console.log(usrTwoStars);
+        })
+  
+        //desicion
+        console.log(usrOneStars, usrTwoStars);
+        if(usrOneStars > usrTwoStars){
+          this.winner = this.usr.login;
+          console.log ("USER " +this.usr.login+ " WINS!!!");
+        } else {
+          this.winner = this.usr2.login;
+          console.log ("USER " +this.usr2.login+ " WINS!!!");
+        }
+      })
 
-    this.apiService.getRepos(u_two.login).subscribe((data: [{stargazers_count: number}]) => {
-      this.userTwoRepos = data;
-      data.forEach((e) => {
-        usrTwoStars += e["stargazers_count"];
-        console.log(usrTwoStars);
-      });
     })
 
-    console.log(usrOneStars, usrTwoStars);
-    if(usrOneStars > usrTwoStars){
-      this.winner = this.usr.login;
-      console.log ("USER " +this.usr.login+ " WINS!!!");
-    } else {
-      this.winner = this.usr2.login;
-      console.log ("USER " +this.usr2.login+ " WINS!!!");
-    }
+   
+
+    
   }
 
   reload(){
