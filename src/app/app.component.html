@@ -24,7 +24,9 @@
 <div class="container">
     <div [class.active]="!users">
         <div class="card" style="width: 18rem;" >
-            <img class="card-img-top" src="{{usr.avatar_url}}" >
+            <a href="https://github.com/{{usr.login}}">
+                <img class="card-img-top" src="{{usr.avatar_url}}">
+            </a>
             <div class="card-body">
                 <h5 class="card-title">{{usr.login}}</h5>
                 <a href="https://github.com/{{usr.login}}?tab=repositories" class="btn btn-primary">See repos</a>
@@ -32,7 +34,9 @@
         </div>
         
         <div class="card" style="width: 18rem;">
-            <img class="card-img-top" src="{{usr2.avatar_url}}" >
+            <a href="https://github.com/{{usr2.login}}">
+                <img class="card-img-top" src="{{usr2.avatar_url}}" >
+            </a>
             <div class="card-body">
                 <h5 class="card-title">{{usr2.login}}</h5>
                 <a href="https://github.com/{{usr2.login}}?tab=repositories" class="btn btn-primary">See repos</a>
@@ -41,7 +45,7 @@
     </div>
 
     <button type="button" class="btn btn-primary" (click)="compareUsers(usr, usr2)" [disabled]="!users" data-toggle="modal" data-target="#exampleModal">
-        PLAY NOWWWW!!!!
+        PLAY NOW!
     </button>
 </div>
       
@@ -50,13 +54,18 @@
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">THE WINNER IS !!!!!</h5>
+                    <h5 class="modal-title" id="exampleModalLabel">THE WINNER IS {{winner}}!</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    {{winner}}
+                    <button class="btn btn-primary">See {{usr.login}} stars</button>
+                        <div class="showRepos">
+                            <!-- Add event to button and write function -->
+                            <!-- <p *ngFor="let e of elements"> {{e}} </p> -->
+                        </div>
+                    <button class="btn btn-primary">See {{usr2.login}} stars</button>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
