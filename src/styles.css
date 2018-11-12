@@ -34,3 +34,11 @@ button {
     70% { opacity:1; }
     100% { opacity:0; }
 }
+
+.card {
+    margin-top: 10%;
+}
+
+.active{
+    display: none;
+}

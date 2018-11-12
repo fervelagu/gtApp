@@ -6,7 +6,7 @@
         <i class="fab fa-github-alt"></i>
     </h1>
 
-    <form #myForm="ngForm" (ngSubmit)="getUsr(myForm.form);">
+    <form #myForm="ngForm" (ngSubmit)="submit(myForm.form);">
         <div class="input-group mb-3">
             <input type="text" name="one" class="form-control" placeholder="Insert username" aria-label="Insert username" aria-describedby="button-addon2" ngModel #one="ngModel" required>
             <p class="alert alert-danger" *ngIf="one.touched && one.errors"> Usernames are required </p>
@@ -17,7 +17,51 @@
             <p class="alert alert-danger" *ngIf="two.touched && two.errors"> Usernames are required </p>
         </div>
     
-        <button class="btn btn-primary" [disabled]="!myForm.valid">GO!</button>
+        <button class="btn btn-primary" [disabled]="!myForm.valid">Get users</button>
     </form>
-    
 </div>
+
+<div class="container">
+    <div [class.active]="!users">
+        <div class="card" style="width: 18rem;" >
+            <img class="card-img-top" src="{{usr.avatar_url}}" >
+            <div class="card-body">
+                <h5 class="card-title">{{usr.login}}</h5>
+                <a href="https://github.com/{{usr.login}}?tab=repositories" class="btn btn-primary">See repos</a>
+            </div>
+        </div>
+        
+        <div class="card" style="width: 18rem;">
+            <img class="card-img-top" src="{{usr2.avatar_url}}" >
+            <div class="card-body">
+                <h5 class="card-title">{{usr2.login}}</h5>
+                <a href="https://github.com/{{usr2.login}}?tab=repositories" class="btn btn-primary">See repos</a>
+            </div>
+        </div>
+    </div>
+
+    <button type="button" class="btn btn-primary" (click)="compareUsers(usr, usr2)" [disabled]="!users" data-toggle="modal" data-target="#exampleModal">
+        PLAY NOWWWW!!!!
+    </button>
+</div>
+      
+    <!-- Modal -->
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">THE WINNER IS !!!!!</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    {{winner}}
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" (click)="reload()">PLAY AGAIN</button>
+                </div>
+            </div>
+        </div>
+    </div>
